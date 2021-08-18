@@ -6,7 +6,7 @@ const path = require('path');
 const helmet = require("helmet");
 require('dotenv').config();
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.API_PORT || 8000;
 const HOST = process.env.HOST || 'localhost';
 
 mongoose.connect(process.env.MONGO_URI, {
