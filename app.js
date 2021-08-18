@@ -52,4 +52,4 @@ app.use('/user-file', require('./routes/fileUpload'));
 // });
 var httpsServer = https.createServer(credentials, app);
 
-httpServer.listen(PORT);
+httpsServer.listen(PORT);
