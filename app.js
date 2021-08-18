@@ -8,8 +8,9 @@ require('dotenv').config();
 
 const PORT = process.env.API_PORT || 8000;
 const HOST = process.env.HOST || 'localhost';
+const MONGO_URI = 'mongodb+srv://AWS:SamSung1316!@cluster0.zifzp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect(MONGO_URI, {
   useCreateIndex: true,
   useNewUrlParser: true,
   useUnifiedTopology: true
