@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
+const https = require('https');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const path = require('path');
@@ -29,7 +30,7 @@ mongoose.connect(MONGO_URI, {
     console.error('Mongo Connection Error', err);
   });
 
-const app = express.createServer(credentials);
+const app = express();
 
 app.use(cors());
 app.use(express.json());
@@ -46,6 +47,9 @@ app.use('/users', require('./routes/users'));
 app.use('/url-design', require('./routes/urlDesign'));
 app.use('/user-file', require('./routes/fileUpload'));
 
-app.listen(PORT, HOST, () => {
-  console.log(`Server started listening on PORT:${PORT}`);
-});
+// app.listen(PORT, HOST, () => {
+//   console.log(`Server started listening on PORT:${PORT}`);
+// });
+var httpsServer = https.createServer(credentials, app);
+
+httpServer.listen(PORT);
