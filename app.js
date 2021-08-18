@@ -10,6 +10,12 @@ const PORT = process.env.API_PORT || 8000;
 const HOST = process.env.HOST || 'localhost';
 const MONGO_URI = 'mongodb+srv://AWS:SamSung1316!@cluster0.zifzp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
+
+var privateKey = fs.readFileSync('/etc/letsencrypt/live/lcard.startify.dev/privkey.pem');
+var certificate = fs.readFileSync('/etc/letsencrypt/live/lcard.startify.dev/fullchain.pem');
+
+var credentials = {key: privateKey, cert: certificate};
+
 mongoose.connect(MONGO_URI, {
   useCreateIndex: true,
   useNewUrlParser: true,
@@ -22,7 +28,7 @@ mongoose.connect(MONGO_URI, {
     console.error('Mongo Connection Error', err);
   });
 
-const app = express();
+const app = express.createServer(credentials);
 
 app.use(cors());
 app.use(express.json());
