@@ -5,7 +5,7 @@ async function sendEmail(email, code) {
   sgMail.setApiKey('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');
   const msg = {
     to: email,
-    from: 'lcard-noreply@gmail.com',
+    from: 'johnny@startifysolutions.com',
     subject: 'Verify your email',
     html: `<!DOCTYPE>
         <html>
