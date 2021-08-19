@@ -2,12 +2,12 @@ require('dotenv').config();
 const sgMail = require('@sendgrid/mail');
 
 async function sendEmail(email, code) {
-  sgMail.setApiKey(process.env.SG_APIKEY);
+  sgMail.setApiKey('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');
   const msg = {
     to: email,
-    from: 'vldmr.timotijevic@gmail.com',
+    from: 'lcard-noreply@gmail.com',
     subject: 'Verify your email',
-    html: `<!DOCTYPE> 
+    html: `<!DOCTYPE>
         <html>
           <body>
             <p>Your authentication code is : </p> <b>${code}</b>
