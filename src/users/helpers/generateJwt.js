@@ -7,7 +7,7 @@ const options = {
 async function generateJwt(email, userId) {
   try {
     const payload = { email, id: userId };
-    const token = jwt.sign(payload, "JwtSecret", options);
+    const token = jwt.sign(payload, 'JwtToken', options);
     return { error: false, token };
   } catch (error) {
     return { error: true };

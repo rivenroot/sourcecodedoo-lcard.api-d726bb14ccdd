@@ -27,7 +27,7 @@ async function validateToken(req, res, next) {
       };
       return res.status(403).json(result);
     }
-    result = jwt.verify(token, process.env.JWT_SECRET, options);
+    result = jwt.verify(token, 'JwtToken', options);
     if (!user._id === result.id) {
       result = {
         error: true,
